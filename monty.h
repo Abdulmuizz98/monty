@@ -1,8 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,10 +38,10 @@ typedef struct instruction_s
 extern int global_arg;
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void exec (char *line, unsigned int line_number, stack_t **rack);
+void exec(char *line, unsigned int line_number, stack_t **rack);
 int check_atoi(char* str);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 size_t print_list(const stack_t *h);
 char *rm_newline(char *nline, ssize_t nread);
-#endif /*MONTY_H*/
+#endif /* MONTY_H */

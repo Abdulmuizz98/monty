@@ -1,0 +1,11 @@
+MONTY
+
+spaces before and after the opcode
+blank lines
+no file path - expect "USAGE: monty file" + EXIT_FAILURE
+file open problem - expect "Error: Can't open file <file>" + EXIT_FAILURE
+invalid instruction - expect "L<line_numbeer>:  unknown instruction <opcode>" + EXIT_FAILURE
+
+SPECIFICS
+-- push - 
+	arg not integer - expect "L<line_number>: usage: push integer" + EXIT_FAILURE

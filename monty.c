@@ -1,12 +1,18 @@
 #include "monty.h"
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
 
 int global_arg;
 /**
+ * main - the monty interpreter program
+ * @argc: ac
+ * @argv: av
+ *
+ * Return: 0 when it finishes.
  */
 int main(int argc, char **argv)
 {
@@ -22,31 +28,19 @@ int main(int argc, char **argv)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
-	}	
+	}
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-               	exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
 		line_number++;
-		/*nline = rm_newline(line, nread);		
-		printf("$%s$", nline);
-		fflush(stdout);*/
 		exec(line, line_number, &head);
-		/*free(nline);*/
 	}
-	return (0);
-
+	free(line);
+	fclose(stream);
+	exit(EXIT_SUCCESS);
 }
-
-/*
-main - monty.c
-	- Open the file and preepare for reading
-	- Loop Read from the file per line.
-	- Each line should be an instruction.( you may use the instruction obj)
-commands (
-	- push.c (for the push command)
-*/	
