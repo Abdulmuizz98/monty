@@ -1,0 +1,7 @@
+main - monty.c
+	- Open the file and preepare for reading
+	- Loop Read from the file per line.
+	- Each line should be an instruction.( you may use the instruction obj)
+commands (
+	- push.c (for the push command)
+	
