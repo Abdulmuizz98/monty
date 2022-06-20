@@ -39,7 +39,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * pint - opcode that prints the value at the top of the stack.
  * @stack: the stack to print
  * @line_number: the line number of the opcode
- * 
+ *
  * Return: Nothing.
  */
 void pint(stack_t **stack, unsigned int line_number)
@@ -50,4 +50,20 @@ void pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
+}
+/**
+ * pop - opcode that removes the top element of the stack
+ * @stack: the stack to print
+ * @line_number: the line number of the opcode
+ *
+ * Return: Nothing.
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	delete_at_index(stack, 0);
 }

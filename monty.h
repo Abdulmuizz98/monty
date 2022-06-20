@@ -39,10 +39,12 @@ extern int global_arg;
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void exec(char *line, unsigned int line_number, stack_t **rack);
 int check_atoi(char* str);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
+int delete_at_index(stack_t **head, unsigned int index);
 size_t print_list(const stack_t *h);
 char *rm_newline(char *nline, ssize_t nread);
 #endif /* MONTY_H */

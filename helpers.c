@@ -12,13 +12,14 @@ void exec(char *line, unsigned int line_number, stack_t **rack)
 	int j, arg;
 	char *token, *token1;
 	instruction_t commands[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}
+		{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}
 	};
 
 	token = strtok(line, " \n");
 	token1 = strtok(NULL, "");
 
-	j = 2;
+	j = 3;
 	while (j > -1)
 	{
 		if (token == NULL)
@@ -84,3 +85,4 @@ char *rm_newline(char *nline, ssize_t nread)
 	line[nread - 1] = '\0';
 	return (line);
 }
+
