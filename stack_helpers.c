@@ -130,4 +130,21 @@ int delete_at_index(stack_t **head, unsigned int index)
 	free(trav);
 	return (1);
 }
+/**
+ * list_len - returns the number of elements in list.
+ * @h: the pointer to the head of the list
+ *
+ * Return: the number of elements in the list.
+ */
+size_t list_len(const stack_t *h)
+{
+	const stack_t *trav = h;
+	int count = 0;
 
+	while (trav)
+	{
+		trav = trav->next;
+		count++;
+	}
+	return (count);
+}
