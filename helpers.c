@@ -13,7 +13,8 @@ void exec(char *line, unsigned int line_number, stack_t **rack)
 	char *token, *token1;
 	instruction_t commands[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"swap", swap}, {"add", add}
+		{"pop", pop}, {"swap", swap}, {"add", add},
+		{"nop", nop}
 	};
 
 	token = strtok(line, " \n");

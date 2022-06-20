@@ -42,6 +42,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void exec(char *line, unsigned int line_number, stack_t **rack);
 int check_atoi(char* str);
 stack_t *add_dnodeint(stack_t **head, const int n);
