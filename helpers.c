@@ -14,13 +14,14 @@ void exec(char *line, unsigned int line_number, stack_t **rack)
 	instruction_t commands[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add},
-		{"nop", nop}
+		{"nop", nop}, {"sub", sub}, {"mul", mul},
+		{"div", divide}, {"mod", mod}
 	};
 
 	token = strtok(line, " \n");
 	token1 = strtok(NULL, "");
 
-	j = 6;
+	j = 10;
 	while (j > -1)
 	{
 		if (token == NULL)

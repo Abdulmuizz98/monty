@@ -27,23 +27,6 @@ void nop(stack_t **stack, unsigned int line_number)
 {
 	if (*stack)
 		line_number += 0;
-/**
-* add - opcode that adds the top two elements of the stack
-* @stack: the stack to print
-* @line_number: the line number of the opcode
-*
-* Return: Nothing.
-*/
-void add(stack_t **stack, unsigned int line_number)
-{
-	if (list_len(*stack) < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	((*stack)->next)->n += (*stack)->n;
-	delete_at_index(stack, 0);
-}
 }
 /**
 * sub - opcode that subtracts the top two elements of the stack
@@ -63,20 +46,20 @@ void sub(stack_t **stack, unsigned int line_number)
 	delete_at_index(stack, 0);
 }
 /**
-* div - opcode that divides the top two elements of the stack
+* divide - opcode that divides the top two elements of the stack
 * @stack: the stack to print
 * @line_number: the line number of the opcode
 *
 * Return: Nothing.
 */
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	if (list_len(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if((*stack)->n == 0)
+	if ((*stack)->n == 0)
 	{
 
 		fprintf(stderr, "L%d: division by zero\n", line_number);
@@ -100,27 +83,5 @@ void mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	((*stack)->next)->n *= (*stack)->n;
-	delete_at_index(stack, 0);
-}
-/**
-* mod - opcode that mods the top two elements of the stack
-* @stack: the stack to print
-* @line_number: the line number of the opcode
-*
-* Return: Nothing.
-*/
-void mod(stack_t **stack, unsigned int line_number)
-{
-	if (list_len(*stack) < 2)
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	if((*stack)->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	((*stack)->next)->n %= (*stack)->n;
 	delete_at_index(stack, 0);
 }
